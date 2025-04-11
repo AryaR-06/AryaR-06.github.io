@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arya's Design Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  <header id="header-placeholder"></header>
+  <script>
+    fetch('components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        setTitles("Position"); // 2
+        updatePageProgress();
+        window.addEventListener('scroll', updatePageProgress);
+      });
+  
+    function updatePageProgress() {
+      const bar = document.getElementById('page-progress-bar');
+      if (!bar) return;
+
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+  
+      bar.style.width = `${scrollPercent}%`;
+    }
+
+    function setTitles(title) {
+      const el = document.getElementById("page-title");
+      if (el) {
+        el.textContent = title;
+      }
+      document.title = `${title}: Arya's Portfolio`;
+    }
+  </script>
+
+  <div id="sidebar-placeholder"></div>
+
+  <main id="all" data-aos="fade-down" data-aos-delay="0">
+    <section id="position">
+      <h1>Position</h1> 
+      <p>
+        This section presents my original engineering design position, how it evolved over the term, and why I chose to present this portfolio as a website.  
+        The justification for this position appears throughout the portfolio, grounded in the design work and reflections from my first-year engineering projects.
+      </p>
+    </section>
+  
+    <section id="original-position">
+      <h1>My Original Position</h1> 
+      <p>
+        In my position statement, I defined <strong>engineering design</strong> as:
+        <div class="quote">The creative application of advanced knowledge in math and science to solve real-world problems.</div>
+      </p>
+      <p>
+        I viewed engineering design as a subset of engineering, focused on producing functional solutions under constraints, and ultimately making decisions and recommending designs.
+        I believed that engineers hold a privileged position due to their technical expertise, and that they have a responsibility to improve the existing state of the world.
+      </p>
+    </section>
+  
+    <section id="original-position-values">
+      <h2>My Values</h2>
+      <p>
+        To fulfill this responsibility, I personally prioritized two values throughout the engineering process: <strong>accuracy</strong> and <strong>innovation</strong>.
+        Accuracy mattered because engineering decisions have can real consequences if done incorrectly.
+        Innovation mattered because pushing the boundaries of what is possible felt like the best use of my skills.
+      </p> 
+    </section>
+  
+    <section id="original-position-visual">
+      <h2>Visual Representation</h2>
+      <p> 
+        Figure 1 is a visual representation of my original position, sourced from my position statement.
+      </p>
+      <figure>
+        <img src="assets/original_PS_flowchart.png" alt="Figure 1: Visual representation of original position." style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);" />
+        <figcaption>Figure 1: Visual representation of original position.</figcaption>
+      </figure>
+    </section>
+
+    <section id="original-position-document">
+      <h2>Position Statement Document</h2>
+      <p>My complete, unedited position statement can be found below:</p>
+      <p>
+        <a href="assets/ranadiv9-PS.pdf" target="_blank">
+          <button id="PS" title="PS" class="content-button">View Original Statement</button>
+        </a>
+      </p>
+    </section>
+  
+    <section id="iterated-position">
+      <h1>Iterated Position</h1>
+      <p>
+        This section presents my current engineering position after completing Praxis II.
+        My current position builds on my original definition of engineering design, and still emphasizes producing functional solutions under real constraints.
+        My core values of accuracy and innovation remain central to how I define good engineering work.
+      </p>
+    </section>
+  
+    <section id="iterated-position-evolution">
+      <h2>Design Experience and Evolution</h2>
+      <p>
+        My original position was shaped by my early design experiences in Praxis I and CIV102.
+        I carried that position into Praxis II, where I was challenged to apply it in a more complex design environment.
+        That experience prompted me to expand my position based on what I learned.
+      </p>
+    </section>
+  
+    <section id="iterated-position-expansion">
+      <h2>Expanded Priorities</h2>
+      <p>
+        Through Praxis II, I gained clarity on the responsibilities of engineers in practice—especially the importance of iteration, learning, and teamwork.
+        I now place greater emphasis on three additional priorities: continuous <strong>iteration</strong>, continuous <strong>learning</strong>, and <strong>teamwork</strong>.
+        Working on a technical design for real stakeholders showed me that design ideas must evolve through structured feedback and testing to be the most effective.
+        I also recognized the importance of collaboration in navigating constraints, generating solutions, and achieving outcomes that would not have been possible on my own.
+        Finally, I learned that engineering is a learning process—not just through reflection and revision, but also through acquiring new technical skills during design work.
+        By learning more I expand what I am capable of contributing—enabling me to deliver better, more impactful solutions.  
+        These additions do not replace my original position; rather, they expand upon it.
+      </p>
+    </section>
+  
+    <section id="iterated-position-visual">
+      <h2>Visual Representation</h2>
+      <p>
+        Figure 2 provides a visual summary of my revised position. 
+        While it is meant to be similar to Figure 1, I modified the formatting to reflect my position with more clarity.
+      </p>
+      <figure>
+        <img src="assets/new_PS_flowchart.png" alt="Iterated Position Flowchart" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>Figure 2. Visual representation of my revised engineering position.</figcaption>
+      </figure>      
+    </section>
+  
+    <section id="iterated-position-summary">
+      <h2>Summary and Framing</h2>
+      <p>
+        My original position was shaped by Praxis I and CIV102, while the additions—iteration, learning, and teamwork—emerged through reflection on my Praxis II experience.
+        While iteration, learning, and teamwork were already present in my work, they were not consciously emphasized until Praxis II made their importance clear.
+        The CTMFs selected in each project highlight key aspects of my position and help explain how it developed over time.
+        Together, they frame this portfolio and serve as evidence of my growth as a designer.
+        These ideas now shape how I think about design, and the sections that follow show how this position developed through experience.
+      </p>      
+    </section>
+  
+    <section id="portfolio-website">
+      <h1>Portfolio as a Website</h1>
+      <p>
+        I chose to present this portfolio as a website because it directly supports my values of <strong>learning</strong> and <strong>innovation</strong>.
+        With no prior experience in web development, I treated this as an engineering opportunity—learning the necessary tools and workflows as part of the design process itself.
+        This allowed me to develop new technical skills while creating a format that is structured, interactive, and adaptable.
+      </p>
+      
+      <p>
+        I also viewed presentation as a design challenge: an opportunity to apply my engineering values beyond the project work itself.
+        Choosing a website allowed me to treat communication not as an afterthought, but as a deliberate solution—one that emphasizes clarity, structure, and accessibility.
+        In doing so, I applied some key principles I value in design—<strong>accuracy</strong> and <strong>iteration</strong>—to how I communicate design.
+      </p>
+      <p>
+        The result is a format that benefits both the reader and myself, as the primary stakeholder. 
+        It is also forward-looking, as I intend to continue updating and using this platform to showcase future engineering work.
+      </p>
+      <p>
+        The next section is Praxis I, where the early stages of my design learning are documented in context.
+      </p>
+    </section>
+  </main>  
+
+  <div id="scroll-buttons-placeholder"></div>
+  <div id="footer-nav-placeholder"></div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/transitions.js" defer></script>
+  <script src="js/sidebar.js" defer></script>
+  <script src="js/toc.js" defer></script>
+  <script src="js/footer-nav.js" defer></script>
+  <script src="js/scroll-buttons.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 2000,     // animation duration in ms
+      once: true         // animate only once when scrolling down
+    });
+  </script>
+</body>
+</html>

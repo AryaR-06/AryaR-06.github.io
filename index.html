@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arya's Design Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  <header id="header-placeholder"></header>
+  <script>
+    fetch('components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        setTitles("Introduction"); // 1
+        updatePageProgress();
+        window.addEventListener('scroll', updatePageProgress);
+      });
+  
+    function updatePageProgress() {
+      const bar = document.getElementById('page-progress-bar');
+      if (!bar) return;
+
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+  
+      bar.style.width = `${scrollPercent}%`;
+    }
+
+    function setTitles(title) {
+      const el = document.getElementById("page-title");
+      if (el) {
+        el.textContent = title;
+      }
+      document.title = `${title}: Arya's Portfolio`;
+    }
+  </script>
+
+  <div id="sidebar-placeholder"></div>
+
+  <main id="all" data-aos="fade-down" data-aos-delay="0">
+    <section id="introduction">
+      <h1>Introduction</h1> 
+      <p>
+        Hi, I'm Arya Ranadive, a first-year Engineering Science student at the University of Toronto.
+        This website is my submission for ESC102's student engineer design portfolio.
+        This portfolio documents my learnings as a student engineer over the past year, and how it has informed my position on engineering design. 
+      </p>
+      <p>
+        I chose to present my portfolio as a website because it benefits me, the primary stakeholder, directly. 
+        Building it helped me learn new tools and workflows — something I return to later when describing my position. 
+        It also aligns with my goal of entering the machine intelligence field, where strong digital presentation is expected.
+      </p>
+    </section>
+    <section id="ToC">
+      <h1>Table of Contents</h1>
+      <p>
+        The table of contents below provides an overview of this site. Click on any section to navigate directly to it.
+     </p>
+     <div id="toc-placeholder"></div>
+    </section>
+    <section id="navigation">
+      <h1>Website Navigation</h1>
+      <p>
+        This portfolio is organized into a sequence of pages, each building upon the previous to form a cohesive portfolio. 
+        You can navigate to the next section using the blue button located at the bottom of each page. 
+        Alternatively, the right-hand sidebar provides direct access to specific sections at any time. 
+        To maintain the intended flow and context, I recommend reading the pages in order.
+      </p>
+      <p>
+        Each page can be navigated by scrolling vertically.
+        Use the navigation buttons in the bottom-left corner to quickly jump to the top or bottom of a page.
+        For the optimal viewing experience, please access this site on a desktop or laptop device.
+      </p>
+      <p>
+        With the structure of the portfolio established, I begin the core content in the next section, starting with my engineering position.
+      </p>
+    </section>
+  </main>
+
+  <div id="scroll-buttons-placeholder"></div>
+  <div id="footer-nav-placeholder"></div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/transitions.js" defer></script>
+  <script src="js/sidebar.js" defer></script>
+  <script src="js/toc.js" defer></script>
+  <script src="js/footer-nav.js" defer></script>
+  <script src="js/scroll-buttons.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 2000,     // animation duration in ms
+      once: true         // animate only once when scrolling down
+    });
+  </script>
+</body>
+</html>

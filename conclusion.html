@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arya's Design Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  <header id="header-placeholder"></header>
+  <script>
+    fetch('components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        setTitles("Conclusion"); // 6
+        updatePageProgress();
+        window.addEventListener('scroll', updatePageProgress);
+      });
+  
+    function updatePageProgress() {
+      const bar = document.getElementById('page-progress-bar');
+      if (!bar) return;
+
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+  
+      bar.style.width = `${scrollPercent}%`;
+    }
+
+    function setTitles(title) {
+      const el = document.getElementById("page-title");
+      if (el) {
+        el.textContent = title;
+      }
+      document.title = `${title}: Arya's Portfolio`;
+    }
+  </script>
+
+  <div id="sidebar-placeholder"></div>
+
+  <main id="all" data-aos="fade-down" data-aos-delay="0">
+    <section id="conclusion">
+      <h1>Conclusion</h1>
+      <p>
+        This portfolio traces the development of my engineering design position through nine CTMFs across three major projects: Praxis I, CIV102, and Praxis II. 
+        What began as a focus on <strong>accuracy</strong> and <strong>innovation</strong> evolved into a broader design mindset grounded in <strong>iteration</strong>, <strong>learning</strong>, and <strong>teamwork</strong>. 
+        Each CTMF revealed how values are enacted—not just defined—and how good engineering is not the result of a single decision, but a sustained process built on framing, divergence, convergence, and representation.
+      </p>
+      <p>
+        From reframing assumptions in Praxis I to testing reality through physical prototypes and iterative learning in Praxis II, each experience deepened my understanding of what it means to be responsible for my work. 
+        Responsibility, I have come to see, is not a value—it is the standard I aim to meet. The values I hold are how I get there. Whether I am questioning a model's limitations, balancing voices in a team, or learning a tool I’ve never used before, it is these values that guide how I design.
+      </p>
+      <p>
+        I now understand that my responsibility as an engineer is not just to build correctly, but to build <em>intentionally</em>. 
+        To approach problems with clarity, test ideas with humility, and learn constantly from the world around me. The CTMFs in this portfolio are not just methods—they are the scaffolding that helped me build those habits.
+      </p>
+
+      <p>
+        <strong>Thank you</strong> for making it to the end of my Portfolio. I hope it provided insight into my design process as a first year engineering student.
+      </p>
+    </section>    
+  </main>  
+
+  <div id="scroll-buttons-placeholder"></div>
+  <div id="footer-nav-placeholder"></div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/transitions.js" defer></script>
+  <script src="js/sidebar.js" defer></script>
+  <script src="js/toc.js" defer></script>
+  <script src="js/footer-nav.js" defer></script>
+  <script src="js/scroll-buttons.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 2000,     // animation duration in ms
+      once: true         // animate only once when scrolling down
+    });
+  </script>
+</body>
+</html>

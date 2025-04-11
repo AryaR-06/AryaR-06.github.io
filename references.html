@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arya's Design Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  <header id="header-placeholder"></header>
+  <script>
+    fetch('components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        setTitles("References"); // 7
+        updatePageProgress();
+        window.addEventListener('scroll', updatePageProgress);
+      });
+  
+    function updatePageProgress() {
+      const bar = document.getElementById('page-progress-bar');
+      if (!bar) return;
+
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+  
+      bar.style.width = `${scrollPercent}%`;
+    }
+
+    function setTitles(title) {
+      const el = document.getElementById("page-title");
+      if (el) {
+        el.textContent = title;
+      }
+      document.title = `${title}: Arya's Portfolio`;
+    }
+  </script>
+
+  <div id="sidebar-placeholder"></div>
+
+  <main>
+    <section>
+      <h1>References</h1>
+      <p>
+        Personal work sourced from process analysis, Praxis I design report, CIV102 design report and related documents, position statement, Praxis II group drive.
+        CTMFs sourced from slides and other course resources.
+      </p>
+      <p>
+        <strong>Due Diligence</strong>
+      </p>
+      <p>
+        Lofgreen, J., & Carrick, R. (2024). ESC102 Slide 05. University of Toronto. Retrieved from Quercus (learning management system).
+      </p>
+
+      <p>
+        <strong>Osborne Checklist</strong>
+      </p>
+      <p>
+        CreativityToday.net (n.d.). 27 Creativity Tools for Divergent and Convergent Thinking [uncurated].pdf. CreativityToday.net. Retrieved from Quercus (learning management system).
+      </p>
+
+      <p>
+        <strong>Measurement Matrix</strong>
+      </p>
+      <p>
+        Lofgreen, J., & Carrick, R. (2024). ESC101 Slide 26. University of Toronto. Retrieved from Quercus (learning management system).
+      </p>
+
+      <p>
+        <strong>Hoover Dam Model</strong>
+      </p>
+      <p>
+        Lofgreen, J., & Carrick, R. (2024). ESC101 Slide 02. University of Toronto. Retrieved from Quercus (learning management system).
+      </p>
+
+      <p>
+        <strong>Psychological Safety</strong>
+      </p>
+      <p>
+        Lofgreen, J., & Carrick, R. (2024). ESC101 Slide 10. University of Toronto. Retrieved from Quercus (learning management system).
+      </p>
+
+      <p>
+        <strong>Prototyping</strong>
+      </p>
+      <p>
+        Lofgreen, J., & Carrick, R. (2024). ESC101 Slide 27. University of Toronto. Retrieved from Quercus (learning management system).
+      </p>
+
+      <p>
+        <strong>Brainwriting 6-3-5</strong>
+      </p>
+      <p>
+        CreativityToday.net (n.d.). 27 Creativity Tools for Divergent and Convergent Thinking [uncurated].pdf. CreativityToday.net. Retrieved from Quercus (learning management system).
+      </p>
+
+      <p>
+        <strong>Vygotskian Zone of Proximal Development</strong>
+      </p>
+      <p>
+        Lofgreen, J., & Carrick, R. (2024). ESC101 Slide 01. University of Toronto. Retrieved from Quercus (learning management system).
+      </p>
+
+    </section>
+  </main>
+
+  <div id="scroll-buttons-placeholder"></div>
+  <div id="footer-nav-placeholder"></div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/transitions.js" defer></script>
+  <script src="js/sidebar.js" defer></script>
+  <script src="js/footer-nav.js" defer></script>
+  <script src="js/scroll-buttons.js" defer></script>
+</body>
+</html>

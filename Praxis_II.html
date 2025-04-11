@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arya's Design Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  <header id="header-placeholder"></header>
+  <script>
+    fetch('components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        setTitles("Praxis II"); // 5
+        updatePageProgress();
+        window.addEventListener('scroll', updatePageProgress);
+      });
+  
+    function updatePageProgress() {
+      const bar = document.getElementById('page-progress-bar');
+      if (!bar) return;
+
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+  
+      bar.style.width = `${scrollPercent}%`;
+    }
+
+    function setTitles(title) {
+      const el = document.getElementById("page-title");
+      if (el) {
+        el.textContent = title;
+      }
+      document.title = `${title}: Arya's Portfolio`;
+    }
+  </script>
+
+  <div id="sidebar-placeholder"></div>
+
+  <main id="all" data-aos="fade-down" data-aos-delay="0">
+    <section id="Praxis-II">
+      <h1>Praxis II</h1>
+      <p>
+        This section presents my work in CIV102, a structural engineering course taken in parallel with Praxis I. 
+        It summarizes the bridge design project I completed with my team, the CTMFs that shaped our approach, 
+        and how this experience contributed to my development as a student engineer.
+      </p>
+    </section>
+    
+    <section id="summary">
+      <h1>Project Summary</h1>
+      <p>
+        The button below opens a one-pager style summary of my team's Praxis II project. 
+        It outlines the opportunity, user needs, and the final RGBrix system—an automated LEGO sorter 
+        that classifies 2x4 bricks by color using a sensor-based mechanism designed for real users and real constraints.
+      </p>
+      <p>
+        <a href="assets/praxis-II-Summary.pdf" target="_blank">
+          <button id="P-II" title="P-II" class="content-button">Praxis II Summary</button>
+        </a>
+      </p>
+    </section>
+    
+    <section id="connection">
+      <h1>Connection to My Position</h1>
+      <p>
+        Praxis II challenged me to apply my engineering values in a more open-ended and user-centered environment. 
+        While my original position emphasized <strong>accuracy</strong> and <strong>innovation</strong>, this project helped me realize how those values are enabled—and often constrained—by process. 
+        I began to see that accurate solutions are not just delivered through analysis, but developed through structured <strong>iteration</strong>, deliberate <strong>learning</strong>, and collaborative <strong>teamwork</strong>.
+      </p>
+      <p>
+        Our design was not technically complex, but it evolved through continuous framing, testing, and feedback. 
+        I learned to treat each round of iteration as data, shaping how we converged on ideas and refined our solution. 
+        This iterative structure also revealed the importance of learning as a key part of design itself. 
+        We often had to acquire new skills, interpret unfamiliar constraints, and reshape our framing to match what we discovered.
+        Learning was required to deliver a better end product. Finally, throughout our process, strong teamwork was invaluable. Without it,
+        we would not have accomplished what we did—it is just not possible for one person, or a poor team, to accomplish what we did.
+      </p>
+      <p>
+        While <strong>accuracy</strong> remained central in ensuring our solution was grounded and feasible, and <strong>innovation</strong> helped us push beyond the obvious, 
+        it was these three newer priorities—iteration, learning, and teamwork—that allowed our design process to succeed under real constraints. 
+        Praxis II did not replace my original values—it showed me how they emerge from a broader set of habits I now see as essential to engineering practice.
+      </p>
+    </section>
+    
+    
+    <section id="prototyping">
+      <h1>CTMF 1: Prototyping</h1>
+      <p><strong>CTMF Type</strong>: Represent</p>
+    
+      <p>
+        In Praxis II, we used <strong>prototyping</strong> as an iterative tool to refine both form and function. Our initial CAD model represented a highly organized solution—
+        well-scoped and internally consistent—but it was not the final design we ended up building. As we moved from digital modeling to physical prototyping, 
+        we discovered issues with proportions, usability, and operation that were not apparent in CAD alone.
+        These discoveries prompted a series of adjustments. For example, we did not expect pieces to fly off the ramp—to fix this we installed a cage to guide the pieces better.
+        Furthermore, we did not expect to have alignment issues with the Lego brick and the sensor—guiding the piece under the sensor fixed this too.
+        Figure 10 compares our initial CAD with the final working prototype.
+      </p>
+    
+      <figure>
+        <img src="assets/b4after1.png" alt="Figure: CAD vs. Final Prototype" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>
+          Figure 10: Comparison between early CAD model (left) and the final functional prototype (right). 
+          Note the changes in proportion, layout, and structure that emerged through iterative building and testing.
+        </figcaption>
+      </figure>
+    
+      <p>
+        This experience demonstrated a key insight: building without a plan is risky, but adhering too strictly to a plan can blind you to better solutions.
+        CAD helped us structure our ideas, but iteration through physical representation is what made the design usable. 
+        Our early models were medium fidelity—detailed enough to communicate structure, but not so rigid that we could not revise.
+        By refining the model with proxy testing in MyFab, we were able to validate and adapt the design based on how it behaved in context—not just how it looked on screen. 
+      </p>
+    
+      <p>
+        <strong>Evaluating this CTMF</strong>: prototyping allowed us to test ideas not just in theory, but in the world. 
+        This helped us discover details that CAD could not fully capture.
+        We learned that prototypes at different fidelities serve different purposes: rough forms help surface flaws early, 
+        while more polished versions validate specific details before commitment. Without moving between these representations, we would have either over-committed too early or failed to converge on a viable final build.
+        Next time, I will apply this CTMF more deliberately—planning for low-, mid-, and high-fidelity prototypes at key stages, so that iteration is built into the timeline.
+      </p>
+    
+      <p>
+        This tool helped reinforce the value of <strong>iteration</strong> in a practical and measurable way. 
+        By using prototypes to refine what our CAD could not predict, we made a more usable and buildable product—one that evolved with our growing insight.
+        It also reminded me that <strong>accuracy</strong> is not just about drawings or measurements, but about ensuring that what we try to build matches the context it's built for.
+      </p>
+    
+      <p><strong>Make a plan—but do not be bound by it.</strong></p>
+    </section>
+
+    <section id="brainwriting">
+      <h1>CTMF 2: Brainwriting 6-3-5</h1>
+      <p><strong>CTMF Type</strong>: Diverge</p>
+    
+      <p>
+        Our team used <strong>Brainwriting 6-3-5</strong>, modified for four people.
+        We had three silent rounds of iteration, where each member came up with three ideas each. 
+        Each person begins by writing down three distinct ideas on a template, then passing it on, building on what came before. 
+        We used this process during the early concept development phase to explore modularity, storage, and interactivity in our RGBrix design. 
+        What made this technique effective was not just its structure, but its pacing: silence forced us to think independently, while iteration encouraged synthesis. 
+        This method came up with very unique ideas, for example, the idea to build a stacked design originated from brainwriting 6-3-5.
+        Figure 10 shows an in-progress image of 6-3-5, with a stacked conveyor belt layout. 
+        This later gave us the idea to stack the entire design
+      </p>
+    
+      <figure>
+        <img src="assets/brain.jpg" alt="Figure: Team brainwriting sheets" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>
+          Figure 11: Excerpt from our team's completed Brainwriting 6-3-5 templates. 
+          Ideas were written and built upon over three silent rounds before discussion began.
+        </figcaption>
+      </figure>
+    
+      <p>
+        Because contributions were made in writing, it allowed teammates to communicate clearly without interruption, and gave each idea space to be understood before it was developed further.
+        More importantly, it leveled the playing field: everyone contributed the same number of ideas, and everyone's thoughts were visible and built upon equally. 
+        This prevented early idea anchoring and helped preserve multiple lines of thought across divergent directions before we began converging.
+        This was important because before using this tool, we had been anchoring on a specific solution (a sift design). 
+        6-3-5 helped rewire our biases and focus on different solutions.
+      </p>
+    
+      <p>
+        <strong>Evaluating this CTMF</strong>: Brainwriting 6-3-5 offered more than just idea quantity—it improved quality by slowing us down and separating idea generation from evaluation. 
+        It created a neutral zone where ideas could exist without being judged, which led to more diverse and unconventional directions than open discussion alone might have. 
+        The ideas we pursued later—such as the internal ramp system and stacked modules—were not just good ideas; they were improved through five rounds of layering. 
+        That iterative layering proved especially helpful in identifying edge cases we had not considered initially. 
+      </p>
+    
+      <p>
+        In the future, I will apply this CTMF when I need broad, unbiased input from a group—especially when early conversations tend to circle around familiar patterns or dominant voices. 
+        I also recognize that brainwriting works best when done early, before any ideas become "group-owned" too soon. It creates a structure where teamwork feels automatic, 
+        not because we all agree, but because we are literally building on one another's thoughts in a visible, controlled format.
+      </p>
+    
+      <p>
+        This CTMF reinforced my understanding of <strong>teamwork</strong> as a design skill that must be supported by process, not just intent. 
+        We did not stumble into collaboration—it was enabled by a structure that invited balanced participation and distributed ownership. 
+        Our final design owes its success to that foundation.
+      </p>
+    </section>
+    
+    <section id="learning">
+      <h1>CTMF 3: Vygotskian Zone of Proximal Development</h1>
+      <p><strong>CTMF Type</strong>: Frame, Diverge, Converge, Represent</p>
+    
+      <p>
+        One of the most personally meaningful outcomes of Praxis II was the skill I developed in <strong>CAD modeling</strong>. 
+        At the start of the project, I had no prior experience with Onshape or any other 3D design tool. 
+        Learning to model our interactive RGB block system from scratch pushed me to the edge of my ability—challenging, but always manageable with effort and support.
+        This process aligned closely with the <em>Vygotskian Zone of Proximal Development</em>: the idea that optimal learning occurs when a task lies just beyond current skill, yet within reach through guided exploration.
+        For instance, when designing the ramp for RGBrix, I struggled until I found a tutorial on shifting planes—exactly the guidance I needed to move forward. 
+        In contrast, building the ramp's support came easily, since I had already practiced similar structures earlier in the project.
+        This shows the Vygotskian model in action, as I learned a skill I did not have previously through mild struggle.
+        Figure 12 compares an early CAD file to the refined model used in our final prototype.
+      </p>
+    
+      <figure>
+        <img src="assets/b4after2.png" alt="Before and after images of CAD work" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>
+          Figure 12: Comparison of early and final CAD models. The left image shows my first attempt at component modeling; the right shows the full RGB unit used in the final assembly. 
+          Changes reflect both skill development and clearer design understanding.
+        </figcaption>
+      </figure>
+    
+      <p>
+        Learning happened in phases: at first, I followed tutorials to build simple objects, then moved on to collaborative parts with my team. 
+        Eventually, I was able to make key design decisions directly within CAD, such as adapting tolerances, angled geometries and constraints. 
+        I was not just learning a tool; I was learning how to <em>represent design intent</em> in a format that others could evaluate and build from.
+        This made me more effective as a teammate and more precise in my contributions.
+      </p>
+    
+      <p>
+        I also applied this mindset in building the website for this portfolio. While the tools were different—HTML, CSS, and JavaScript—the learning pattern was the same: 
+        working near the boundary of what I knew, scaffolding new knowledge, and iterating toward clarity. 
+        Both projects taught me that learning is not a separate task from engineering; it is one of its core modes.
+      </p>
+    
+      <p>
+        <strong>Evaluating this CTMF</strong>: framing learning as part of the design process made me more engaged and more willing to take risks. 
+        It encouraged me to ask better questions, seek targeted help, and reflect on what I still needed to understand. 
+        However, I also realized that learning gains are uneven: they require the right challenge at the right time. 
+        I could not have developed these skills by reading alone—having a live project, immediate goals, and supportive teammates made the difference.
+        Going forward, I will treat learning as an <em>intentional design target</em>: actively seeking roles and projects where I am operating in that optimal zone. 
+        Not every challenge will land there, but the risk is worth it. If it is too easy, I grow bored; if it is too hard, I may fail—but in trying, I still move forward. 
+        Either way, the only real loss is not trying at all.
+        </p>
+    
+      <p>
+        This CTMF deepened my commitment to <strong>iteration</strong>, but from a different angle: iteration not just in designs, but in myself. 
+        The ability to grow new skills mid-project made me more confident, more capable, and more aligned with my responsibility as an engineer. 
+        I now view learning as something that should be built into the design process—not as a separate step, but as a necessary mode of progress.
+      </p>
+
+      <p><strong>Learning is a privilege—given the opportunity, seize it.</strong></p>
+    </section>         
+    
+    <section id="reflection">
+      <h1>Reflection</h1>
+      <p>
+        Praxis II brought my engineering values into practice. I entered the course grounded in <strong>accuracy</strong> and <strong>innovation</strong>, but left with a broader understanding of what makes good design possible. 
+        Tools like prototyping, brainwriting, and CAD modeling helped me see how <strong>iteration</strong>, <strong>learning</strong>, and <strong>teamwork</strong> enable accuracy and innovation to emerge—not as fixed traits, but as outcomes of process.
+      </p>
+      <p>
+        This project showed me that good design rarely comes from getting it right the first time. It comes from working in the right structure, with the right people, at the right level of challenge—over and over again. 
+        This understanding allows me to act on my values, not just define them.
+      </p>
+      <p>
+        The habits I built in Praxis II—structured iteration, intentional skill-building, and balanced collaboration—are not just ways to improve a project. 
+        They are how I now aim to fulfill my responsibility as an engineer. These are not replacements for my original values, they means to realize my original values.
+      </p>
+    </section>
+    
+  </main>  
+
+  <div id="scroll-buttons-placeholder"></div>
+  <div id="footer-nav-placeholder"></div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/transitions.js" defer></script>
+  <script src="js/sidebar.js" defer></script>
+  <script src="js/toc.js" defer></script>
+  <script src="js/footer-nav.js" defer></script>
+  <script src="js/scroll-buttons.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 2000,     // animation duration in ms
+      once: true         // animate only once when scrolling down
+    });
+  </script>
+</body>
+</html>

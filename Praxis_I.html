@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arya's Design Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  <header id="header-placeholder"></header>
+  <script>
+    fetch('components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        setTitles("Praxis I"); // 3
+        updatePageProgress();
+        window.addEventListener('scroll', updatePageProgress);
+      });
+  
+    function updatePageProgress() {
+      const bar = document.getElementById('page-progress-bar');
+      if (!bar) return;
+
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+  
+      bar.style.width = `${scrollPercent}%`;
+    }
+
+    function setTitles(title) {
+      const el = document.getElementById("page-title");
+      if (el) {
+        el.textContent = title;
+      }
+      document.title = `${title}: Arya's Portfolio`;
+    }
+  </script>
+
+  <div id="sidebar-placeholder"></div>
+
+  <main id="all" data-aos="fade-down" data-aos-delay="0">
+    <section id="praxis-I">
+      <h1>Praxis I</h1>
+      <p>
+        This section presents my work in Praxis I, the first engineering design course in the Engineering Science program.
+        It summarizes the project I worked on, the CTMFs I applied, and how the experience informed my engineering position.
+      </p>
+    </section>
+    
+    <section id="summary">
+      <h1>Project Summary</h1>
+      <p>
+        The button below opens a one-pager style summary of my team's Praxis I design work.
+        This one-pager summarizes the context, design process, and final solution of our project.
+      </p>
+      <p>
+        <a href="assets/praxis-I-Summary.pdf" target="_blank">
+          <button id="P-I" title="P-I" class="content-button">Praxis I Summary</button>
+        </a>
+      </p>
+    </section>
+    
+    <section id="connection">
+      <h1>Connection to My Position</h1>
+      <p>
+        During Praxis I, I learned how easily a design can fail when it is built on unspoken assumptions. 
+        Our team believed we had defined the problem thoroughly, but during our Alpha presentation, 
+        the examiner challenged us on a missing requirement: what does it actually mean to “solve” the Splartz? 
+        We had assumed the meaning was self-evident, but it was never defined or included in our framing.
+        That moment shaped my early commitment to <strong>accuracy</strong>—to define the problem as clearly as the solution.
+      </p>
+      <p>
+        I also learned the value of <strong>innovation</strong> in Praxis I, when my team explored both hydraulic and pneumatic designs (water and air based pump systems). 
+        By not locking in a design too early, and expanding on what we had, we were able to develop a better design. It was also a form of <strong>iteration</strong>, 
+        even though I had not named it that at the time. Looking back, this open-ended exploration reflected the very habits I now see as essential to good engineering design.
+      </p>
+    </section>
+    
+    <section id="reframing">
+      <h1>CTMF 1: Reframing</h1>
+      <p><strong>CTMF Type</strong>: Framing</p>
+    
+      <p>
+        While reflecting on our missed requirement in Alpha, I realized how our early understanding of the problem had been shaped by another team's original design brief. 
+        Although we reframed their version to clarify goals and scope (shown in red), we did not formally challenge the assumptions embedded in the original framing. 
+        As a result, we overlooked a key requirement: defining what it actually meant to “solve” the Splartz. 
+        That requirement was only added later (in blue), after it was brought to our attention by the examiner. Figure 3 shows the added requirement.
+      </p>
+    
+      <figure>
+        <img src="assets/reframed-praxis-I.png" alt="Figure: Reframing applied in Praxis I" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>
+          Figure 3: Printed design brief that was used for Alpha. Black text is from the original team's version. Red text shows our team's reframing work. 
+          Blue pen marks the missing requirement we added after feedback from the Alpha presentation. Right image is a close-up of the new requirement. 
+          A higher quality image was not available.
+        </figcaption>
+      </figure>
+    
+      <p>
+        This experience showed me that reframing is not just about adjusting scope or formatting a brief—it is about actively interrogating the logic and assumptions underlying a problem statement. 
+        Our reframing helped us clarify the original team's intent, but because we failed to question certain implied goals, we missed the ambiguity behind “solving the Splartz.” 
+        The danger of assumptions lies in their invisibility: they can exclude entire requirements while making a design seem complete.
+      </p>
+    
+      <p>
+        I now view reframing as an ongoing design activity that is essential in two key moments: immediately after receiving a problem statement (especially if inherited), 
+        and again during requirement development. In both stages, reframing must include explicit efforts to surface assumptions, definitions, and dependencies that might otherwise remain implicit.
+      </p>
+    
+      <p>
+        <strong>Evaluating this CTMF</strong>: our reframing provided helpful structure, but it was incomplete. 
+        We organized the problem effectively, but did not interrogate its foundational definitions. 
+        In future work, I will use reframing not only to align on goals, but also to uncover potential blind spots caused by unchallenged assumptions.
+      </p>
+    
+      <p>
+        This experience strengthened my understanding of <strong>accuracy</strong> as a design value. 
+        Precision is not just about numbers—it begins with how the problem is framed. 
+        Reframing is now a method I will use to build that precision from the start.
+      </p>
+    
+      <p><strong>Always reframe—even when the problem seems clear.</strong></p>
+    </section>  
+  
+    <section id="due-diligence">
+      <h1>CTMF 2: Due Diligence</h1>
+      <p><strong>CTMF Type</strong>: Frame, Diverge, Converge, Represent</p>
+      <p>
+        In Praxis I, our team worked from a framing document provided by another group, and while we refined the scope and goals, 
+        we did not question the underlying assumptions. As discussed earlier, this oversight led to a missing requirement during Alpha—
+        an error that originated from trusting that the prior team's framing was complete. At the time, we believed we were building responsibly on previous work, 
+        but in hindsight, we had failed to conduct proper due diligence on what we inherited. 
+        Figure 4 shows a design calculation that informed the missed requirement—
+        a due diligence that should have taken place much earlier in the process than it actually did
+      </p>
+      <figure>
+        <img src="assets/praxis-calc.png" alt="Figure: Reframing applied in Praxis I" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>
+          Figure 4: A design calculation estimating the minimum leg length discrepancy needed to perceive chair wobble (1.25 mm). 
+          This calculation supported a late-stage requirement during Alpha and highlighted a gap in our framing process. 
+          It should have been developed earlier, reinforcing the need for proactive reframing and early assumption checks.
+        </figcaption>
+      </figure>
+      <p>
+        <strong>Due diligence</strong>, as introduced in ESC102 Lecture 05, is the professional responsibility to independently verify the information you rely on—especially when that information 
+        is supplied by others. It is not a sign of mistrust; rather, it is a recognition that even well-intentioned work can carry forward implicit gaps or outdated context. 
+        Lecture 05 frames due diligence as a personal and professional obligation: a way of ensuring both individual integrity and respect for stakeholders, especially when operating 
+        within a larger community or project.
+      </p>
+    
+      <p>
+        <strong>Evaluating this CTMF</strong>: I see now that due diligence should have guided our early work on the problem statement. 
+        We accepted the prior team's assumptions without independently checking them, and that decision had direct consequences on our design's clarity. 
+        Going forward, I will apply this CTMF by validating design inputs, reviewing inherited materials critically, and raising questions about any part of a design 
+        I did not contribute to directly. 
+        If I am creating work independently from the ground up, 
+        I will ensure due diligence by researching thoroughly and checking biases and assumptions often.
+        Having these processes in place will ensure my work always of a high standard, meeting my responsibility to the world.
+      </p>
+    
+      <p>
+        For me, due diligence is now a safeguard for my value of <strong>accuracy</strong>—
+        it prevents me from treating prior work as fact and ensures that every assumption, source, and definition has earned its place in the design. 
+        This kind of verification is not just a task; it is a mindset I intend to carry into every future engineering decision, 
+        especially when stakes are high or problems are inherited.
+      </p>
+    
+      <p><strong>Always verify—especially when the source seems trustworthy.</strong></p>
+    </section>
+    
+    <section id="parallel-ideas">
+      <h1>CTMF 3: "Parallel Ideas" (Osborne Checklist)</h1>
+      <p><strong>CTMF Type</strong>: Diverging</p>
+    
+      <p>
+        In Praxis I, we developed a method we called <em>parallel ideas</em>: after generating a wide range of concepts using tools like biomimicry and SCAMPER, 
+        we used the <strong>Osborne Checklist</strong> to systematically expand on those ideas. This allowed us to push promising directions further, without prematurely narrowing in.
+        Figure 5 shows biomimicry and SCAMPER, while Figure 6 shows "parallel ideas."
+      </p>  
+      <figure>
+        <img src="assets/praxis-bio.png" alt="Figure: Osborne Checklist used in parallel idea development" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>
+          Figure 5: A document showing the summaries of the various brainstorming methods used to encompass a large design space. 
+          To be contrasted with parallel ideas which are used to explore a narrow design space
+        </figcaption>
+      </figure>
+
+      <figure>
+        <img src="assets/praxis-para.png" alt="Figure: Osborne Checklist used in parallel idea development" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>
+          Figure 6: Designs generated during brainstorming: Hydraulic system (left) and pneumatic system
+          (right), demonstrating parallel ideas. Annotated with text for readability
+        </figcaption>
+      </figure>
+
+      <p>
+        As outlined in ESC101's "17 Diverging Tools" resource, the Osborne Checklist is a set of prompts that help designers transform existing ideas 
+        by asking questions like “What can be substituted?”, “What else is like this?”, or “What can be magnified or modified?”. Rather than using it on random concepts, 
+        we applied it to ideas produced through structured divergence—ensuring that we started from a broad foundation before deepening specific solutions.
+      </p>
+    
+      <p>
+        <strong>Evaluating this CTMF</strong>: our use of parallel ideas helped balance creativity with structure. Applying the Osborne Checklist after initial divergence 
+        ensured that we didn't converge too early, while still building momentum. However, we also learned that this technique must follow—not replace—true divergence. 
+        Parallel ideas are not a substitute for coming up with a wide range of ideas; they must complement this approach. 
+        Otherwise, we run the risk of not exploring the desing space enough, which can leave potential solutions unconsidered.
+      </p>
+    
+      <p>
+        In future projects, I plan to reserve time for this exact sequence: use wide-reaching idea generation tools first, then follow with Osborne-style transformations. 
+        This separation of <strong>generating</strong> and <strong>expanding</strong> ideas gives teams space to explore without losing depth.
+      </p>
+    
+      <p>
+        This CTMF also strengthened my appreciation for <strong>innovation</strong> as a value. It showed me that creativity is not just about the number of ideas you generate, 
+        but about how thoroughly you explore and refine them before making decisions. 
+      </p>
+    </section>    
+    
+    <section id="reflection">
+      <h1>Reflection</h1>
+      <p>
+        Praxis I taught me that strong engineering begins with how problems are framed. I saw firsthand how missing a requirement could arise not from technical error, 
+        but from unspoken assumptions. That moment shaped my understanding of <strong>accuracy</strong>—not just in execution, but in identifying what the design must achieve. 
+        I also began to recognize the role of <strong>innovation</strong> and <strong>iteration</strong> in my work, especially through our structured exploration of divergent ideas.
+      </p>
+      <p>
+        I was taking CIV102 in parallel with this project, and it offered a valuable contrast: even in more analytical domains like bridge design, 
+        I found myself learning similar lessons—lessons about the importance of my core values. 
+        The next section explores those lessons in more depth. 
+        Together, these experiences built the foundation for the habits I now rely on to meet my responsibility as an engineer.
+      </p>
+    </section>
+  </main>  
+
+  <div id="scroll-buttons-placeholder"></div>
+  <div id="footer-nav-placeholder"></div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/transitions.js" defer></script>
+  <script src="js/sidebar.js" defer></script>
+  <script src="js/toc.js" defer></script>
+  <script src="js/footer-nav.js" defer></script>
+  <script src="js/scroll-buttons.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 2000,     // animation duration in ms
+      once: true         // animate only once when scrolling down
+    });
+  </script>
+</body>
+</html>

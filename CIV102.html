@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arya's Design Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+</head>
+<body>
+  <header id="header-placeholder"></header>
+  <script>
+    fetch('components/header.html')
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById('header-placeholder').innerHTML = data;
+        setTitles("CIV102"); // 4
+        updatePageProgress();
+        window.addEventListener('scroll', updatePageProgress);
+      });
+  
+    function updatePageProgress() {
+      const bar = document.getElementById('page-progress-bar');
+      if (!bar) return;
+
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+  
+      bar.style.width = `${scrollPercent}%`;
+    }
+
+    function setTitles(title) {
+      const el = document.getElementById("page-title");
+      if (el) {
+        el.textContent = title;
+      }
+      document.title = `${title}: Arya's Portfolio`;
+    }
+  </script>
+
+  <div id="sidebar-placeholder"></div>
+
+  <main id="all" data-aos="fade-down" data-aos-delay="0">
+    <section id="CIV102">
+      <h1>CIV102</h1>
+      <p>
+        This section presents my work in CIV102, a structural engineering course taken in parallel with Praxis I. 
+        It summarizes the bridge design project I completed with my team, the CTMFs that shaped our approach, 
+        and how this experience contributed to my development as a student engineer.
+      </p>
+    </section>
+    
+    <section id="summary">
+      <h1>Project Summary</h1>
+      <p>
+        The button below opens a one-pager style summary of my team's CIV102 bridge design project. 
+        It outlines the design context, structural calculations, and final bridge configuration we developed in the term.
+      </p>
+      <p>
+        <a href="assets/CIV102-Summary.pdf" target="_blank">
+          <button id="CIV" title="CIV" class="content-button">CIV102 Summary</button>
+        </a>
+      </p>
+    </section>
+    
+    <section id="connection">
+      <h1>Connection to My Position</h1>
+      <p>
+        Our CIV102 bridge featured a bold and innovative design—both visually distinct and structurally optimized. 
+        Through iterative analysis, we arrived at a truss configuration that was theoretically among the strongest we could produce, 
+        and I was proud of the creativity behind it.
+      </p>
+      <p>
+        Yet despite our calculations, the bridge failed to pass the base load test. 
+        That outcome reminded me that accuracy in engineering is not just about mathematical soundness—it’s about alignment with physical conditions. 
+        The failure helped me recognize how easily small assumptions or overlooked real-world factors can undermine even a strong theoretical design. 
+        This deepened my commitment to <strong>accuracy</strong>, especially in bridging the gap between modeling and reality.
+      </p>
+      <p>
+        In hindsight, I also came to appreciate the importance of <strong>teamwork</strong>. 
+        Working with a calm and collaborative group helped me reflect on the failure with clarity, not defensiveness. 
+        That environment made it easier to learn from mistakes, and reinforced how shared support can transform a technical setback into a meaningful experience.
+      </p>
+    </section>
+    
+    <section id="measurement-matrix">
+      <h1>CTMF 1: Measurement Matrix</h1>
+      <p><strong>CTMF Type</strong>: Converging</p>
+    
+      <p>
+        In CIV102, we applied the principles of a <strong>measurement matrix</strong> to evaluate our bridge concepts through structural calculations.
+        A traditional measurement matrix assigns values to design options based on performance against criteria—typically using scoring and weighted trade-offs—
+        but always includes <strong>engineering judgment</strong> to interpret results within context. We followed this standard approach:
+        using <em>Y-bar</em>, <em>factor of safety</em>, and <em>failure mode predictions</em> to compare and eliminate weaker designs.
+        Our calculations, drawn from a custom code we developed in Python, enabled us to classify iterations and refine geometry based on consistent performance metrics.
+        Figure 7 shows three of many iterations.
+      </p>
+    
+      <figure>
+        <img src="assets/matrix-1.png" alt="Figure: Example bridge calculations used in convergence" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>
+          Figure 7: Structural calculations comparing different bridge configurations using code-based evaluation. These comparisons supported final convergence decisions.
+        </figcaption>
+      </figure>
+    
+      <p>
+        The "matrix" helped us converge on what we called a "kit-kat" style bridge—an unconventional design characterized by narrow truss spacing and layered glue joints.
+        It was not the most typical choice, but it demonstrated strong theoretical strength and was validated through successive design loops.
+        We selected specific bridge heights (e.g., 40 mm, 60 mm, 80 mm) not because they were optimal numerically, but because they aligned with build constraints and symmetry.
+        This reflects a core feature of the measurement matrix: it guides judgment, but never replaces it.
+      </p>
+    
+      <p>
+        <strong>Evaluating this CTMF</strong>: our use of the measurement matrix gave structure to our decision-making while allowing space for creativity.
+        It helped us balance quantitative analysis with subjective evaluation, enabling us to iterate intelligently rather than guess.
+        However, we also learned that this technique must remain embedded within an iterative process. A matrix can only capture what is measured—
+        so if the inputs are biased, or alternatives too narrow, it can prematurely lock in a weak decision.
+        In our case, this risk was partially avoided by grounding the matrix in a wide set of code-evaluated iterations, but not fully resolved. 
+        Had we included more parameters in our matrix, perhaps our bridge would not have failed prematurely.
+      </p>
+    
+      <p>
+        This reinforced a key insight for me: <strong>innovation</strong> and <strong>convergence</strong> are not in conflict when tools are used deliberately.
+        The matrix helped us transform an unconventional idea into a theoretically justified design, demonstrating that structure does not constrain creativity—it reveals where it holds up.
+        Going forward, I will treat the measurement matrix as part of an cycle that involves constant iteration on designs and parameters, and engineering judgement based decisions. 
+        When used early and revisited often, this tool enables engineering decisions that are both rigorous and bold.
+      </p>
+  
+      <p><strong>Measure rigorously—then decide deliberately.</strong></p>
+    </section>
+  
+    <section id="hoover">
+      <h1>CTMF 2: Hoover Dam Model</h1>
+      <p><strong>CTMF Type</strong>: Frame and Represent</p>
+    
+      <p>
+        Our CIV102 bridge failed during testing—not due to member strength or buckling, but because of a stress concentration at the glue connection. 
+        This failure mode was not captured in our code-based simulation, which treated members as ideal and the glue joint as a perfect interface.
+        Although our model helped optimize geometry and predict performance, it was built on assumptions that proved incomplete under real-world loading.
+        Figure 8 shows a CAD model of the bridge, notably without the glue joint.
+      </p>
+    
+      <figure>
+        <img src="assets/cad-bridge.png" alt="CAD Model of bridge" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>
+          Figure 8: CAD model of the final CIV102 bridge design. 
+          The rendering includes detailed member geometry but omits the glue joints, which later proved to be a critical point of failure. 
+        </figcaption>
+      </figure>
+    
+      <p>
+        This aligns directly with the <strong>Hoover Dam</strong> model taught in ESC101 Lecture 02. 
+        The model is uses the Hoover Dam as an example to frame reality into a simplifed model, 
+        make decisions based on it, and apply those decisions into the real world. 
+        This model never represents the world itself, but rather a simplification used to make predictions or decisions. 
+        Our code applied this model, by treating members as idealized structures and the glue joint as a perfect boundary—assumptions that made the model solvable, but ultimately incomplete.
+        Just as the Hoover Dam was once considered technically sound but now struggles with unanticipated outcomes such as climate-driven water shortages (Lecture 02), 
+        our model was valid within its limits but blind to loads at the connection, resulting in its failure.
+      </p>
+    
+      <p>
+        <strong>Evaluating this CTMF</strong>: the failure emphasized that modeling is only one part of engineering judgment. 
+        Although our model was structurally valid, it omitted the most fragile part of the build—glue failure—which ultimately governed performance.
+        This revealed that any model must be tested for what it omits as well as what it includes.
+        In the future, I will treat models as tools to question, not just tools to use—especially when materials or joints carry unpredictable risks.
+        While simplistic modeling can be useful in the early stages of design—such as for back-of-the-envelope calculations—a late-stage model must be rigorously constructed. 
+        Building accurate models that capture just the right level of detail is a skill I have not yet mastered. 
+        While PHY180 introduced me to modeling in a theoretical context, this experience showed me how much more there is to learn. 
+        Developing that skill is now a clear priority in my engineering education, and one I will pursue to become the best engineer I can.
+      </p>      
+    
+      <p>
+        I also recognize that this was a lapse in <strong>due diligence</strong>. 
+        While glue failure modes were not discussed in course content, they are widely known in truss design literature. 
+        I should have investigated potential failure points beyond the scope of what was taught. 
+        This experience showed me that due diligence includes identifying what has not been covered—and proactively seeking knowledge to fill those gaps.
+      </p>
+    
+      <p>
+        This reinforced my commitment to <strong>accuracy</strong>: accurate models are not just mathematically correct—they are aligned with reality. 
+        That includes how structures are built, how joints behave, and where idealizations break down.
+      </p>
+    
+      <p><strong>Models are only useful if you know what they miss.</strong></p>
+    </section>    
+    
+    <section id="psychological-safety">
+      <h1>CTMF 3: Psychological Safety</h1>
+      <p><strong>CTMF Type</strong>: Frame, Diverge, Converge, Represent</p>
+    
+      <p>
+        In our CIV102 team, psychological safety played a significant role in shaping how we approached both design and failure. 
+        Because I had chosen teammates I already trusted, we entered the project with a shared baseline of openness and comfort. 
+        This environment allowed us to surface disagreements early, challenge assumptions without hesitation, and admit mistakes without fear of blame. 
+        Our communication was efficient because critique could happen without defensiveness, and we rarely second-guessed each other's intentions.
+        Figure 9 shows an image of Raihan and I gluing the bridge.
+      </p>
+    
+      <figure>
+        <img src="assets/teamwork.jpg" alt="Figure: Team members during design" style="max-width: 100%; height: auto; border: 1px solid var(--accent-1);">
+        <figcaption>
+          Figure 9: Image of Raihan and I gluing the bridge outdoors. Used with permission.
+        </figcaption>
+      </figure>
+    
+      <p>
+        Psychological safety directly affects how the entire design process unfolds. 
+        In teams with low safety, ideas may be filtered or withheld to avoid judgment, silently narrowing the problem space or solution space.
+        In contrast, our team could explore alternate truss shapes, load paths, and construction techniques without fear of “wasting time.” 
+        This expanded our scope of considered options and enabled a more robust process—including various rounds of diverging and converging.
+      </p>
+    
+      <p>
+        <strong>Evaluating this CTMF</strong>: While psychological safety is not a substitute for technical judgment, it enables teams to work more effectively. 
+        By reducing the interpersonal risk of being wrong, it allows more assumptions to be questioned and more ideas to surface—especially during framing and early divergence. 
+        However, this level of trust cannot be assumed. I was fortunate to work with a team I already knew, but in future projects, psychological safety must be deliberately cultivated.
+        I will do this by actively encouraging feedback, acknowledging uncertainty, and ensuring that critique is directed at ideas—not individuals. 
+        Team based design happens socially as much as it does cognitively, and safety is the condition that allows that process to be honest and complete.
+      </p>
+
+      <p>
+        This CTMF strengthened my appreciation for <strong>teamwork</strong> as a condition for accurate, innovative, and iterative design. 
+        When trust is present, it becomes easier to challenge each other's assumptions, take creative risks, and recover from failure. 
+        In hindsight, our team's safety was not just a benefit—it was a quiet enabler of the very values that shaped my engineering approach.
+      </p>
+    </section>        
+    
+    <section id="reflection">
+      <h1>Reflection</h1>
+      <p>
+        CIV102 deepened my understanding of what it means to evaluate a design—not just by its calculations, but by its ability to hold up in the real world. 
+        Even though our bridge was analytically sound, it failed due to an overlooked detail: the glue joint. 
+        That outcome reinforced my commitment to <strong>accuracy</strong> as something that extends beyond equations, requiring close attention to real-world behavior, construction limits, and failure modes.
+      </p>
+      <p>
+        What allowed me to grow from the experience was <strong>teamwork</strong>. 
+        Our psychologically safe environment gave us the space to reflect without defensiveness, to learn without blame, and to work toward better design despite the outcome. 
+        Those habits shaped how I now approach technical collaboration—and I carry them forward with clarity.
+      </p>
+      <p>
+        The next section explores Praxis II, where I applied my lessons from semester 1 and developed new ones. 
+        While the project was more open-ended and centered on user experience, the mindset I had built, incuding my values, remained important in my work.
+      </p>
+    </section>
+  </main>  
+
+  <div id="scroll-buttons-placeholder"></div>
+  <div id="footer-nav-placeholder"></div>
+
+  <script src="js/main.js" defer></script>
+  <script src="js/transitions.js" defer></script>
+  <script src="js/sidebar.js" defer></script>
+  <script src="js/toc.js" defer></script>
+  <script src="js/footer-nav.js" defer></script>
+  <script src="js/scroll-buttons.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 2000,     // animation duration in ms
+      once: true         // animate only once when scrolling down
+    });
+  </script>
+</body>
+</html>
